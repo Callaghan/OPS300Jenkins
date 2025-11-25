@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-deployment
+  labels:
+    course: OPS300
+spec:
+  selector:
+    matchLabels:
+      course: OPS300
+  template:
+    metadata:
+      labels:
+        course: OPS300
+    spec:
+      containers:
+        - name: democontainer
+          image: nginx
+          ports:
+            - containerPort: 80
