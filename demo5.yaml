@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-deployment
+  labels:
+    course: OPS300
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      course: OPS300
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        course: OPS300
+    spec:
+      containers:
+        - name: democontainer
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
