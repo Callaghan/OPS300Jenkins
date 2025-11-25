@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-deployment
+  labels:
+    course: OPS300
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      course: OPS300
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 10%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        course: OPS300
+    spec:
+      containers:
+        - name: democontainer
+          image: nginx
+          ports:
+            - containerPort: 80
