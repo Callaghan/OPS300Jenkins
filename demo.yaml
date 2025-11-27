@@ -14,7 +14,7 @@ spec:
         course: OPS300
     spec:
       containers:
-        - name: democontainers
-          image: registry.lab.300.ops:5000/httpd
+        - name: democontainer
+          image: nginx
           ports:
             - containerPort: 80
